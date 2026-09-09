@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,15 +42,17 @@
       
       const videoFiles = files.filter(f => f.name.match(/\.(mp4|webm|mov)$/i))
       
+      let html = '';
       videoFiles.forEach(file => {
         const { data } = supabase.storage.from('Videos').getPublicUrl(file.name)
-        container.innerHTML += `
+        html += `
           <div class="video">
             <video controls preload="metadata" src="${data.publicUrl}"></video>
             <h3>${file.name}</h3>
           </div>
         `
       })
+      container.innerHTML = html;
     }
     loadVideos()
 </script>
