@@ -20,7 +20,7 @@
   <div class="grid" id="videoList"></div>
 
 <script>
-    const SUPABASE_URL = 'https://mlrsaizdrdlijgtzuoltv.supabase.co'
+    const SUPABASE_URL = 'https://mlrsaizdrdljgtzuoltv.supabase.co'  // <-- FIXED: removed extra i
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1scnNhaXpkcmRsamd0enVvbHR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg5NzYwOTcsImV4cCI6MjEwNDU1MjA5N30.NzNbG_ADfLLABSKnZaEFdfNvN8NWnVJrx1vXkA7qHDM'
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
@@ -29,6 +29,7 @@
       
       if (error) { 
         document.getElementById('status').innerText = 'Error: ' + error.message 
+        console.error(error)
         return 
       }
       
